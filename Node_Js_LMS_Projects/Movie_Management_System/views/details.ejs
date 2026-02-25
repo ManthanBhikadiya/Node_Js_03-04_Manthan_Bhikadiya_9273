@@ -1,0 +1,17 @@
+<div style="max-width: 600px;">
+  <% if (movie.image) { %>
+    <img src="<%= movie.image %>" style="width: 100%; height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;">
+  <% } %>
+  
+  <h1><%= movie.title %></h1>
+  <p style="color: #6b7280; font-size: 16px; margin: 10px 0;">Director: <strong><%= movie.director %></strong></p>
+  <p style="color: #6b7280; font-size: 16px; margin: 10px 0;">Genre: <strong><%= movie.genre %></strong></p>
+  <p style="color: #6b7280; font-size: 16px; margin: 10px 0;">Release Year: <strong><%= movie.releaseYear %></strong></p>
+  <p style="font-weight: 600; font-size: 18px; margin: 10px 0; color: #f59e0b;">⭐ Rating: <%= movie.rating %>/10</p>
+  
+  <p style="margin: 20px 0; line-height: 1.6; color: #374151;"><%= movie.description %></p>
+  
+  <div style="margin-top: 30px;">
+    <a href="/" class="btn btn-primary">Back to Movies</a>
+  </div>
+</div>

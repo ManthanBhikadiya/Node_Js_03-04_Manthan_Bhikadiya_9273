@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <div class="container">
+    
+    <h1 class="page-title" style="margin-bottom: 30px;">Available Books</h1>
+
+    <div style="margin-bottom: 30px;">
+      <form action="/search" method="GET" style="display: flex; gap: 10px;">
+        <input 
+          type="text" 
+          name="keyword" 
+          placeholder="Search books by title..." 
+          style="flex: 1; padding: 12px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 14px;"
+        >
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </div>
+
+    <div class="grid">
+      <% books.forEach(book=> { %>
+        <div class="card book-card">
+          <% if (book.image) { %>
+            <img src="<%= book.image %>" class="book-img">
+            <% } %>
+
+              <h3>
+                <%= book.title %>
+              </h3>
+              <p style="color: #6b7280;">
+                <%= book.author %>
+              </p>
+              <p style="font-weight:600; margin:8px 0;">₹ <%= book.price %>
+              </p>
+
+              <a href="/book/<%= book._id %>" class="btn btn-primary">View Details</a>
+        </div>
+        <% }) %>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="page-title">Edit Book</h2>
+    <form class="card book-card" action="/admin/edit/<%= book._id %>" method="POST">
+      <input name="title" value="<%= book.title %>">
+      <input name="author" value="<%= book.author %>">
+      <input name="price" type="number" value="<%= book.price %>">
+      <input name="category" value="<%= book.category %>">
+      <input name="image" value="<%= book.image %>">
+      <textarea name="description"><%= book.description %></textarea>
+      <button type="submit" class="btn btn-success">Update</button>
+    </form>
+  </div>
+</body>
+
+</html>

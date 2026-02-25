@@ -1,0 +1,31 @@
+<h1 class="page-title">Admin Dashboard</h1>
+
+<div style="margin-bottom: 30px;">
+  <a href="/admin/add" class="btn btn-success">+ Add New Movie</a>
+</div>
+
+<table style="width: 100%; border-collapse: collapse; background: white;">
+  <thead>
+    <tr style="background: #1f2937; color: white;">
+      <th style="padding: 15px; text-align: left; border: 1px solid #e5e7eb;">Title</th>
+      <th style="padding: 15px; text-align: left; border: 1px solid #e5e7eb;">Director</th>
+      <th style="padding: 15px; text-align: left; border: 1px solid #e5e7eb;">Genre</th>
+      <th style="padding: 15px; text-align: left; border: 1px solid #e5e7eb;">Rating</th>
+      <th style="padding: 15px; text-align: center; border: 1px solid #e5e7eb;">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% movies.forEach(movie => { %>
+      <tr style="border-bottom: 1px solid #e5e7eb;">
+        <td style="padding: 15px; border: 1px solid #e5e7eb;"><%= movie.title %></td>
+        <td style="padding: 15px; border: 1px solid #e5e7eb;"><%= movie.director %></td>
+        <td style="padding: 15px; border: 1px solid #e5e7eb;"><%= movie.genre %></td>
+        <td style="padding: 15px; border: 1px solid #e5e7eb;">⭐ <%= movie.rating %></td>
+        <td style="padding: 15px; border: 1px solid #e5e7eb; text-align: center;">
+          <a href="/admin/edit/<%= movie._id %>" class="btn btn-primary" style="padding: 8px 15px; font-size: 12px;">Edit</a>
+          <a href="/admin/delete/<%= movie._id %>" class="btn btn-danger" style="padding: 8px 15px; font-size: 12px;">Delete</a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

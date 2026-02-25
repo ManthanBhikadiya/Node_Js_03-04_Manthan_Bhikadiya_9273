@@ -1,0 +1,28 @@
+<h1 class="page-title" style="margin-bottom: 30px;">Available Movies</h1>
+
+<div style="margin-bottom: 30px;">
+  <form action="/search" method="GET" style="display: flex; gap: 10px;">
+    <input 
+      type="text" 
+      name="keyword" 
+      placeholder="Search movies by title..." 
+      style="flex: 1; padding: 12px; border: 2px solid #000000; border-radius: 8px; font-size: 14px;"
+    >
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+</div>
+
+<div class="grid">
+  <% movies.forEach(movie=> { %>
+    <div class="card movie-card">
+      <% if (movie.image) { %>
+        <img src="<%= movie.image %>" class="movie-img">
+      <% } %>
+      <h3><%= movie.title %></h3>
+      <p style="color: #6b7280;">Director: <%= movie.director %></p>
+      <p style="color: #6b7280;">Genre: <%= movie.genre %></p>
+      <p style="font-weight:600; margin:8px 0;">⭐ Rating: <%= movie.rating %>/10</p>
+      <a href="/movie/<%= movie._id %>" class="btn btn-primary">View Details</a>
+    </div>
+  <% }) %>
+</div>
