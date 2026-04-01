@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import Login from './Login'
 
 const Register = () => {
 
@@ -18,7 +19,7 @@ const Register = () => {
 
             localStorage.setItem('token', res.data.token || ' ');
 
-            navigate("/profile")
+            navigate(<Login/>)
         } catch (err) {
             alert(err.response?.data?.message || "Register failed")
         }
