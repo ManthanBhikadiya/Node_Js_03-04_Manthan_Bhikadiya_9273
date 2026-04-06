@@ -1,31 +1,34 @@
 import './App.css'
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom'
-import Login from './Components/Login'
-import Register from './Components/Register'
+import Login from './components/Login'
+import Register from './components/Register'
 import Profile from './pages/profile'
-import { useState, useEffect } from 'react'
+import Navbar from './components/Navbar'
+import { useEffect } from 'react'
 
-function App() {
-
+function TokenHandler() {
   const navigate = useNavigate()
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     const token = params.get('token')
-    if (!token) return new Error("Access Denied...")
     if (token) {
       localStorage.setItem("token", token)
-      window.location.replaceState({}, '', '/profile')
+      window.history.replaceState({}, '', '/profile')
       navigate("/profile")
     }
-  })
+  }, [navigate])
 
+  return null
+}
 
+function App() {
   return (
     <>
       <BrowserRouter>
+        <TokenHandler />
         <Routes>
-          <Route path='/' element={<h1>Welcome</h1>} />
+          <Route path='/' element={<Navbar/>} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/profile' element={<Profile />} />

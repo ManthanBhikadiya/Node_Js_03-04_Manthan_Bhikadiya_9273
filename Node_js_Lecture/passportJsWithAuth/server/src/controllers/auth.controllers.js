@@ -40,8 +40,8 @@ export const login = async (req, res, next) => {
   })
 }
 
-export const googleLogin = async (req, res, next) => {
-  passport.authenticate('google', { scope: ['profile', 'email'] })
+export const googleLogin = (req, res, next) => {
+  passport.authenticate('google', { scope: ['profile', 'email'] })(req, res, next)
 }
 
 export const googleCallback = (req, res, next) => {
@@ -51,5 +51,5 @@ export const googleCallback = (req, res, next) => {
 
     const token = JwtUtils.signToken({ id: user._id })
     res.redirect(`http://localhost:3002?token=${token}`)
-  })
+  })(req, res, next)
 }

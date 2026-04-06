@@ -7,7 +7,6 @@ const GoogleLoginButton = () => {
 
     const handleLogin = () => {
         window.location.href = 'http://localhost:3002/auth/google'
-        setActive(true)
     }
 
     return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 const Navbar = () => {
 
@@ -16,8 +16,8 @@ const Navbar = () => {
                     </>
                 ) : (
                     <>
-                        <button>Login</button>
-                        <button>Register</button>
+                        <Link to="/login">Login</Link>
+                        <Link to="/register">Register</Link>
                     </>
                 )
             }

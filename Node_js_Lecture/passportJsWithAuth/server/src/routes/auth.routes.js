@@ -5,8 +5,8 @@ const router = Router()
 
 router.post('/register', register)
 router.post('/login', login)
-router.post('/google', googleLogin)
-router.post('/google/callback', googleCallback)
+router.get('/google', googleLogin)
+router.get('/google/callback', googleCallback)
 router.post('/logout', (req, res) => {
     req.logout(() => { });
     res.clearCookie('token');
