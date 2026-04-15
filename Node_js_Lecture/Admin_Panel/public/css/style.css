@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.header {
+  background: #333;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  background: #222;
+  color: white;
+  position: fixed;
+  padding: 20px;
+}
+
+.sidebar a {
+  color: white;
+  display: block;
+  margin: 10px 0;
+}
+
+.main {
+  margin-left: 220px;
+  padding: 20px;
+}
+
+.footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}

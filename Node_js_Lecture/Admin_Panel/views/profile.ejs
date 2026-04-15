@@ -1,0 +1,15 @@
+<%- include('../partials/header', { title: 'Profile' }) %>
+    <%- include('../partials/sidebar') %>
+
+        <main class="main">
+            <h2>My Profile</h2>
+
+            <form action="/admin/profile" method="POST">
+                <input type="text" name="name" value="<%= user.name %>" placeholder="Name" required />
+                <input type="email" name="email" value="<%= user.email %>" placeholder="Email" required />
+
+                <button type="submit">Update Profile</button>
+            </form>
+        </main>
+
+        <%- include('../partials/footer') %>
