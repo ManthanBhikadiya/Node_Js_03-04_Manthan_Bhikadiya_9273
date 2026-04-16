@@ -1,0 +1,63 @@
+<%- include('../header', { title: 'Admin Dashboard' }) %>
+<%- include('../sidebar') %>
+
+<main class="main">
+    <h1>Welcome to Admin Dashboard 👋</h1>
+    
+    <div class="stats-container">
+        <div class="stat-card">
+            <h3>Total Admins</h3>
+            <p class="stat-number">5</p>
+        </div>
+        <div class="stat-card">
+            <h3>Active Users</h3>
+            <p class="stat-number">120</p>
+        </div>
+        <div class="stat-card">
+            <h3>Total Orders</h3>
+            <p class="stat-number">450</p>
+        </div>
+        <div class="stat-card">
+            <h3>Revenue</h3>
+            <p class="stat-number">$12,500</p>
+        </div>
+    </div>
+
+    <div class="dashboard-content">
+        <div class="card">
+            <h2>Recent Activity</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>User</th>
+                        <th>Action</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>Login</td>
+                        <td>2026-04-16</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Jane Smith</td>
+                        <td>Profile Update</td>
+                        <td>2026-04-15</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Mike Johnson</td>
+                        <td>Order Placed</td>
+                        <td>2026-04-14</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+
+<%- include('../footer') %>
