@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe App - Add Recipe</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <%- include("navbar") %>
+
+    <div class="recipe-form-container">
+        <h2>Add Recipe</h2>
+        <form method="post" action="/recipes/add">
+            <div class="recipe-form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" placeholder="Dish Name" required>
+            </div>
+            
+            <div class="recipe-form-group">
+                <label for="image">Image URL (optional):</label>
+                <input type="url" id="image" name="image" placeholder="Image URL">
+            </div>
+            
+            <div class="recipe-form-group">
+                <label for="ingredients">Ingredients:</label>
+                <textarea id="ingredients" name="ingredients" placeholder="Enter ingredients" required></textarea>
+            </div>
+            
+            <div class="recipe-form-group">
+                <label for="steps">Steps:</label>
+                <textarea id="steps" name="steps" placeholder="Enter cooking steps" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn">Add Recipe</button>
+        </form>
+    </div>
+</body>
+</html>

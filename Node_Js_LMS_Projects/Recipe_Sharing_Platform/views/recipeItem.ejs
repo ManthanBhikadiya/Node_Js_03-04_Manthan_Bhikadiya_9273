@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe App - <%= recipe.title %></title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <%- include("navbar") %>
+
+    <div class="recipe-detail-container">
+        <h1><%= recipe.title %></h1>
+        
+        <% if (recipe.image) { %>
+            <div class="recipe-image-container">
+                <img src="<%= recipe.image %>" alt="<%= recipe.title %>" class="recipe-image">
+            </div>
+        <% } %>
+        
+        <div class="recipe-meta">
+            <span><strong>By:</strong> <%= recipe.createdBy.username %></span>
+            <span><strong>Role:</strong> <%= recipe.createdBy.role %></span>
+        </div>
+        
+        <div class="recipe-content">
+            <h3>Ingredients:</h3>
+            <p><%= recipe.ingredients %></p>
+            
+            <h3>Steps:</h3>
+            <p><%= recipe.steps %></p>
+        </div>
+        
+        <div class="recipe-actions">
+            <a href="/recipes" class="btn">← Back to Recipes</a>
+             <% if (user != null && user.id != null && recipe.createdBy._id.equals(user.id)) { %>
+                 <a href="/recipes/edit/<%= recipe._id %>" class="btn" style="background: #ffc107; color: #212529;">Edit</a>
+                 <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST" style="display: inline;">
+                     <button type="submit" class="btn btn-delete">Delete</button>
+                 </form>
+             <% } %>
+        </div>
+    </div>
+</body>
+</html>

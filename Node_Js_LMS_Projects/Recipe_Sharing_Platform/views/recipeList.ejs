@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe App - All Recipes</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <%- include("navbar") %>
+
+    <div class="container">
+        <h1>All Recipes</h1>
+        <% if (recipes.length === 0) { %>
+            <p class="empty-message">No recipes found. Be the first to add a recipe!</p>
+            <a href="/recipes/add" class="btn">Add Recipe</a>
+        <% } else { %>
+            <div class="recipes-grid">
+                <% recipes.forEach(r => { %>
+                    <div class="card">
+                        <% if (r.image) { %>
+                            <div class="card-image-container">
+                                <img src="<%= r.image %>" alt="<%= r.title %>">
+                            </div>
+                        <% } %>
+                        <div class="card-content">
+                            <h2><%= r.title %></h2>
+                            <p><strong>Ingredients:</strong> <%= r.ingredients %></p>
+                            <p><strong>By:</strong> <%= r.createdBy.username %></p>
+                            <div class="card-actions">
+                                <a href="/recipes/<%= r._id %>" class="btn btn-sm">View</a>
+                                <% if (user != null && user.id != null && r.createdBy._id.equals(user.id)) { %>
+                                    <a href="/recipes/edit/<%= r._id %>" class="btn btn-sm">Edit</a>
+                                    <form action="/recipes/<%= r._id %>?_method=DELETE" method="POST" style="display: inline;">
+                                        <button type="submit" class="btn btn-sm btn-delete">Delete</button>
+                                    </form>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>
