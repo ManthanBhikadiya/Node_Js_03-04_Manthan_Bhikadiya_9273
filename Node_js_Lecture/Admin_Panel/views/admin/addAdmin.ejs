@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/header', { title: 'Add Admin' }) %>
+    <%- include('../partials/sidebar') %>
+        <main class="main">
+            <div class="form-container">
+                <h2>Add New Admin</h2>
+                <form action="/admin/add-admin" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="firstname">First Name:</label>
+                        <input type="text" id="firstname" name="firstname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Last Name:</label>
+                        <input type="text" id="lastname" name="lastname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobileno">Mobile Number:</label>
+                        <input type="text" id="mobileno" name="mobileno">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileimage">Profile Image:</label>
+                        <input type="file" id="profileimage" name="profileimage" accept="image/*">
+                    </div>
+                    <button type="submit">Add Admin</button>
+                </form>
+            </div>
+        </main>
+        <%- include('../partials/footer') %>
+
+</html>

@@ -1,63 +1,76 @@
-<%- include('../header', { title: 'Admin Dashboard' }) %>
-<%- include('../sidebar') %>
+<%- include('../partials/header', { title: 'Admin Dashboard' }) %>
+    <%- include('../partials/sidebar') %>
 
-<main class="main">
-    <h1>Welcome to Admin Dashboard 👋</h1>
-    
-    <div class="stats-container">
-        <div class="stat-card">
-            <h3>Total Admins</h3>
-            <p class="stat-number">5</p>
-        </div>
-        <div class="stat-card">
-            <h3>Active Users</h3>
-            <p class="stat-number">120</p>
-        </div>
-        <div class="stat-card">
-            <h3>Total Orders</h3>
-            <p class="stat-number">450</p>
-        </div>
-        <div class="stat-card">
-            <h3>Revenue</h3>
-            <p class="stat-number">$12,500</p>
-        </div>
-    </div>
+        <main class="main">
+            <h1>Welcome, <%= user.firstname %>
+                    <%= user.lastname %></h1>
 
-    <div class="dashboard-content">
-        <div class="card">
-            <h2>Recent Activity</h2>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>User</th>
-                        <th>Action</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>John Doe</td>
-                        <td>Login</td>
-                        <td>2026-04-16</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Jane Smith</td>
-                        <td>Profile Update</td>
-                        <td>2026-04-15</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Mike Johnson</td>
-                        <td>Order Placed</td>
-                        <td>2026-04-14</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</main>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <h3>Total Admins</h3>
+                    <p class="stat-number">
+                        <%= stats.totalAdmins %>
+                    </p>
+                </div>
+                <div class="stat-card">
+                    <h3>Admins this week</h3>
+                    <p class="stat-number">
+                        <%= stats.adminsThisWeek %>
+                    </p>
+                </div>
+                <div class="stat-card">
+                    <h3>Your email</h3>
+                    <p class="stat-number">
+                        <%= user.email %>
+                    </p>
+                </div>
+                <div class="stat-card">
+                    <h3>Joined</h3>
+                    <p class="stat-number">
+                        <%= user.createdAt ? new Date(user.createdAt).toLocaleDateString() : 'N/A' %>
+                    </p>
+                </div>
+            </div>
 
-<%- include('../footer') %>
+            <div class="dashboard-content">
+                <div class="card">
+                    <h2>Recent Admins</h2>
+                    <% if (recentAdmins && recentAdmins.length> 0) { %>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Joined</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% recentAdmins.forEach((admin, index)=> { %>
+                                    <tr>
+                                        <td>
+                                            <%= index + 1 %>
+                                        </td>
+                                        <td>
+                                            <%= admin.firstname %>
+                                                <%= admin.lastname %>
+                                        </td>
+                                        <td>
+                                            <%= admin.email %>
+                                        </td>
+                                        <td>
+                                            <%= admin.createdAt ? new Date(admin.createdAt).toLocaleDateString() : 'N/A'
+                                                %>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+                        <% } else { %>
+                            <p>No recent admin records available.</p>
+                            <% } %>
+                </div>
+            </div>
+        </main>
+
+        <%- include('../partials/footer') %>

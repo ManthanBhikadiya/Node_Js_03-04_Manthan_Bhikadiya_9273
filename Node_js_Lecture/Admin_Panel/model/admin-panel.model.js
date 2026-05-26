@@ -2,22 +2,33 @@ import mongoose from "mongoose";
 
 const adminPanelSchema = new mongoose.Schema({
     firstname: {
-        type: String
+        type: String,
+        required: true
     },
-    lastename: {
-        type: String
+    lastname: {
+        type: String,
+        required: true
     },
     email: {
-        type: String
+        type: String,
+        required: true,
+        unique: true
     },
     password: {
-        type: String
+        type: String,
+        required: true
     },
     mobileno: {
-        type: Number
+        type: String
     },
     profileimage: {
         type: String
+    },
+    resetOtp: {
+        type: String
+    },
+    resetOtpExpiry: {
+        type: Date
     }
 }, { timestamps: true })
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/header', { title: 'Edit Admin' }) %>
+    <%- include('../partials/sidebar') %>
+        <main class="main">
+            <div class="form-container">
+                <h2>Edit Admin</h2>
+                <form action="/admin/edit-admin/<%= admin._id %>" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="firstname">First Name:</label>
+                        <input type="text" id="firstname" name="firstname" value="<%= admin.firstname %>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Last Name:</label>
+                        <input type="text" id="lastname" name="lastname" value="<%= admin.lastname %>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" value="<%= admin.email %>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobileno">Mobile Number:</label>
+                        <input type="text" id="mobileno" name="mobileno" value="<%= admin.mobileno || '' %>">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">New Password (leave blank to keep current):</label>
+                        <input type="password" id="password" name="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="profileimage">Profile Image:</label>
+                        <input type="file" id="profileimage" name="profileimage" accept="image/*">
+                        <% if (admin.profileimage) { %>
+                            <p>Current Image:</p>
+                            <img src="<%= admin.profileimage %>" alt="Current Profile" width="100" height="100">
+                            <% } %>
+                    </div>
+                    <button type="submit">Update Admin</button>
+                    <a href="/admin/view-admin" class="btn-cancel">Cancel</a>
+                </form>
+            </div>
+        </main>
+        <%- include('../partials/footer') %>
+
+</html>

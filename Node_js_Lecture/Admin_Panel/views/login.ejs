@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/header', { title: 'Login' }) %>
+    <main class="main">
+        <div class="login-container">
+            <div class="login-header">
+                <h2>Admin Login</h2>
+                <p class="login-subtitle">Secure Access to Your Dashboard</p>
+            </div>
+
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="admin@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+
+                <button type="submit" class="login-btn">Sign In</button>
+            </form>
+
+            <div class="test-credentials">
+                <h4>Demo Credentials</h4>
+                <div class="credential-item">
+                    <span class="credential-label">Email:</span>
+                    <span class="credential-value">admin@gmail.com</span>
+                </div>
+                <div class="credential-item">
+                    <span class="credential-label">Password:</span>
+                    <span class="credential-value">admin@123</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include('./partials/footer') %>
+
+</html>
